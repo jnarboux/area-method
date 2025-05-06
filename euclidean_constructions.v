@@ -59,7 +59,7 @@ ring.
 replace (Py B C B * / Py B C B) with 1 in H1.
 2: field;auto with Geom.
 basic_simpl.
-intuition.
+intuition (auto with *).
 Qed.
 
 Lemma on_line_d_iff_on_parallel_d : forall A B C r,
@@ -144,7 +144,7 @@ Lemma check_co_circle : forall A B C D,
 Proof.
 intros.
 unfold co_circle, eq_angle.
-intuition.
+intuition (auto with *).
 Qed.
 
 (* TODO remove auxiliary points *)

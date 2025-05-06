@@ -93,7 +93,7 @@ assert ((2* A**D * B**A) <> 0).
 repeat (apply nonzeromult);auto with Geom.
 replace (B ** D - A ** D) with (B**D + D**A) in H.
 replace (B ** D + D ** A) with (B**A) in H.
-intuition.
+intuition (auto with *).
 symmetry;
 auto with Geom.
 uniformize_dir_seg;ring.
@@ -252,7 +252,7 @@ auto with Geom.
 assert (A<>C).
 intro.
 subst.
-basic_simpl;intuition.
+basic_simpl;intuition (auto with *).
 
 elim (proj_ex P A B H1).
 intros Q HQ.
@@ -269,7 +269,7 @@ basic_simpl.
 
 
 assert (T:=perp_col_perp P Q B C H6 H3 H).
-intuition.
+intuition (auto with *).
 
 assert (perp A C Q P).
 apply (perp_para_perp A B Q P A C);auto with Geom.
@@ -299,7 +299,7 @@ Lemma per_dec : forall A B C,
 Proof.
 intros.
 elim (classic (Py A B C = 0));
-intuition.
+intuition (auto with *).
 Qed.
 
 Ltac cases_per A B C := elim (per_dec A B C);intros.
@@ -611,7 +611,7 @@ assert (O=B) by auto with Geom.
 subst O.
 ring.
 rewrite ( l3_5_py P Q A B O) by
- (unfold mid_point in *;intuition;auto with Geom).
+ (unfold mid_point in *;intuition (auto with *);auto with Geom).
 replace (A ** O / A ** B) with (1/2)
  by (symmetry;apply (midpoint_ratio_1);auto).
 replace (O ** B / A ** B) with (1/2)
@@ -786,14 +786,14 @@ replace ( 0 / (1 / 2)) with 0 in H0.
 auto.
 field;split;auto with Geom.
 intro.
-intuition.
+intuition (auto with *).
 intro.
 assert (1/2*2=0*2).
 rewrite H1.
 auto.
 ring_simplify in H2.
 replace (2 * (1 / 2)) with 1 in H2.
-intuition.
+intuition (auto with *).
 field;auto with Geom.
 Qed.
 
@@ -880,7 +880,7 @@ apply eq_half_eq_zero.
 auto.
 assert (A=C) by auto with Geom.
 subst.
-intuition.
+intuition (auto with *).
 
 assert (Col O D A).
 apply (col_trans_1 O C D A);auto with Geom.
@@ -922,7 +922,7 @@ use H0.
 assert (Col C A O) by auto with Geom.
 assert (Col C O D).
 apply (col_trans_1  C A O D);auto with Geom.
-intuition.
+intuition (auto with *).
 Qed.
 
 
@@ -965,7 +965,7 @@ assert (Py A O A =
        B ** O / B ** D * Py A D A + O ** D / B ** D * Py A B A -
        B ** O / B ** D * (O ** D / B ** D) * Py B D B).
 apply (l3_5_py A A B D O);
-unfold mid_point in *;intuition;auto with Geom.
+unfold mid_point in *;intuition (auto with *);auto with Geom.
 replace (B ** O / B ** D) with (1/2) in *
   by (symmetry;apply midpoint_ratio_1;auto).
 replace (O ** D / B ** D)  with (1/2) in *
@@ -1282,7 +1282,7 @@ basic_simpl.
 uniformize_pys.
 field.
 cut (Py C D C <> 0).
-intuition.
+intuition (auto with *).
 auto with Geom.
 unfold perp, Py4.
 basic_simpl.
@@ -1293,7 +1293,7 @@ rewrite <- H1.
 ring.
 assert (D=C).
 auto with Geom.
-intuition.
+intuition (auto with *).
 Qed.
 
 Lemma l3_10b : forall A B C D,
@@ -1323,11 +1323,11 @@ IsoleVar (A**B) T.
 replace (C ** D * (0 / - Py C D C)) with 0 in T.
 assert (A=B) by auto with Geom.
 subst A.
-intuition.
+intuition (auto with *).
 field.
 cut (Py C D C <>  0).
 intro.
-intuition.
+intuition (auto with *).
 auto with Geom.
 Qed.
 
@@ -1352,7 +1352,7 @@ field.
 split;auto with Geom.
 auto with Geom.
 auto with Geom.
-intuition.
+intuition (auto with *).
 Qed.
 
 Lemma parallel_not_perp : forall A B C D,
@@ -1378,7 +1378,7 @@ intros.
 unfold on_inter_line_perp in *.
 use H2.
 assert (A<>B).
-intro;subst;basic_simpl;intuition.
+intro;subst;basic_simpl;intuition (auto with *).
 elim (proj_ex P A B H2).
 intros P1 HP1.
 unfold on_foot in *.
@@ -1397,7 +1397,7 @@ basic_simpl.
 rewrite H4, H7.
 rewrite col_pyth by assumption.
 assert (A<>P2).
-intro;subst;basic_simpl;intuition.
+intro;subst;basic_simpl;intuition (auto with *).
 rewrite col_pyth by assumption.
 replace (2 * A ** P1 * A ** B / (2 * A ** P2 * A ** B)) with (A**P1/A**P2)
  by (field;repeat split;auto with Geom).
@@ -1453,17 +1453,17 @@ uniformize_dir_seg.
 field;split;auto with Geom.
 
 cut False.
-intuition.
+intuition (auto with *).
 
 apply parallel_not_perp in H7.
-intuition.
+intuition (auto with *).
 auto with Geom.
 auto with Geom.
 
 assert (perp P Q Y B).
 apply (perp_para_perp P2 Q  Y B P Q);auto with Geom.
 assert (perp Y B P Q) by auto with Geom.
-intuition.
+intuition (auto with *).
 
 
 
@@ -1493,7 +1493,7 @@ replace (Py B A Y) with (Py Y A B) by auto with Geom.
 auto.
 unfold per in H17.
 replace (Py B A Q) with (Py Q A B) in H17 by auto with Geom.
-intuition.
+intuition (auto with *).
 
 auto with Geom.
 assert (Col A P1 P2).

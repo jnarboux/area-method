@@ -33,7 +33,7 @@ Proof.
 am_before_field.
 field_and_conclude.
 field_and_conclude.
-intuition.
+intuition (auto with *).
 Qed.
 
 Theorem th6_41_b : forall A B C M N L P K X1 X2:Point,

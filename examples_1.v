@@ -7,6 +7,31 @@
 
 Require  Import area_method.
 
+Theorem varignon:
+ forall A B C D I J K L,
+ is_midpoint I A B ->
+ is_midpoint J B C ->
+ is_midpoint K C D ->
+ is_midpoint L D A ->
+ parallel I J K L /\ parallel J K I L.
+Proof.
+geoInit.
+eliminate I.
+eliminate J.
+eliminate K.
+eliminate L.
+Runiformize_signed_areas.
+field_and_conclude.
+eliminate I.
+eliminate J.
+eliminate K.
+eliminate L.
+Runiformize_signed_areas.
+field_and_conclude.
+Qed.
+
+
+
 (** Transitivity of the parallel predicate expressed constructively *)
 
 Theorem parallel_transitivity :
@@ -90,7 +115,7 @@ Theorem parallelogram_midpoint :
   A ** I / A**C = 1 / 2.
 Proof.
 am_before_field.
-intuition.
+intuition (auto with *).
 Ffield.
 Qed.
 

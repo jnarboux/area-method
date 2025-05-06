@@ -254,7 +254,7 @@ Proof.
 intros.
 local_uniformize_signed_areas.
 rewrite H1 in H.
-intuition.
+intuition (auto with *).
 Qed.
 
 Lemma test173 : forall A B C P, 
@@ -274,7 +274,7 @@ Lemma test174 : forall A B C P,
 Proof.
 intros.
 local_uniformize_signed_areas.
-intuition.
+intuition (auto with *).
 Qed.
 
 (* tests S4 *)
@@ -559,14 +559,14 @@ Lemma test61 : forall A B C, False -> S A B C=0.
 Proof.
 intros.
 local_uniformize_signed_areas.
-intuition.
+intuition (auto with *).
 Qed.
 
 Lemma test62 : forall A B C, False ->  0 = S A B C.
 Proof.
 intros.
 local_uniformize_signed_areas.
-intuition.
+intuition (auto with *).
 Qed.
 
 

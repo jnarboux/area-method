@@ -116,7 +116,7 @@ apply (l_28_b A B W S Y).
  assert (U=V) by auto with Geom.
  subst. 
  unfold on_parallel_d in H.
- intuition.
+ intuition (auto with *).
  auto with Geom.
 unfold on_parallel_d in H.
 use H.
@@ -267,7 +267,7 @@ assert (- (2) * r * P ** Q * P ** Q <> 0).
 repeat (apply nonzeromult);
 auto with Geom.
 rewrite <- H2 in H6.
-intuition.
+intuition (auto with * ).
 auto.
 Qed.
 *)
@@ -309,7 +309,7 @@ auto with Geom.
 unfold not;intro.
 assert (parallel P Q U V).
 auto with Geom.
-intuition.
+intuition (auto with *).
 auto with Geom.
 auto with Geom.
 rewrite dirseg_4 at 1.
@@ -327,7 +327,7 @@ Theorem elim_py_inter_ll_right_invariant :
 Proof.
 intros.
 unfold inter_ll, parallel in H.
-intuition.
+intuition (auto with *).
 Qed.
 
 Theorem elim_py_inter_ll_left_right :
@@ -352,7 +352,7 @@ Theorem elim_py_inter_ll_left_right_invariant :
 Proof.
 intros.
 unfold inter_ll, parallel in H.
-intuition.
+intuition (auto with *).
 Qed.
 
 Theorem elim_py_inter_ll_middle :
@@ -481,7 +481,7 @@ apply l_24_c_on_foot.
 unfold on_foot;auto.
 assert (V**Y/V**U = Py P V U / Py V U V).
 apply l_24_c_on_foot.
-unfold on_foot in *;intuition.
+unfold on_foot in *;intuition (auto with *).
 rewrite H0.
 unfold on_foot in *;use H.
 replace (Y ** V / U ** V) with (V**Y/V**U) by auto with Geom.
@@ -511,7 +511,7 @@ assert (P<>Y).
 intro;subst;basic_simpl.
 IsoleVar (Py Y Q Y) H1.
 replace (0/r) with 0 in H1 by (field;auto with Geom).
-intuition.
+intuition (auto with *).
 
 elim (proj_ex A P Y H).
 intros A1 HA1.
@@ -563,7 +563,7 @@ rewrite H5 in H1.
 basic_simpl.
 IsoleVar r H1.
 replace (0/ Py P Q P) with 0 in H1.
-intuition.
+intuition (auto with *).
 field;auto with Geom.
 auto with Geom.
 
@@ -632,7 +632,7 @@ IsoleVar (P**Q) H2.
 replace (0 / (2 * P ** Y)) with (0) in H2.
 2:field;solve_conds;auto with Geom.
 assert (P=Q) by auto with Geom.
-intuition.
+intuition (auto with *).
 
 replace (Py4 B P A Y) with (- Py4 Y B P A) by auto with Geom.
 
@@ -701,11 +701,11 @@ IsoleVar r H2.
 replace (0 / Py U V U) with 0 in H2.
 2:field;auto.
 2:auto with Geom.
-intuition.
+intuition (auto with *).
 
 elim (proj_ex A U V).
 intros A1 HA1.
-2:unfold on_perp_d in H;intuition.
+2:unfold on_perp_d in H;intuition (auto with *).
 
 assert (S U A Y = Py A U V / Py U V U * S U V Y).
 
@@ -765,7 +765,7 @@ IsoleVar (S U A Y) H1.
 rewrite H1.
 field.
 unfold on_perp_d in *.
-intuition.
+intuition (auto with *).
 
 auto with Geom.
 
@@ -774,7 +774,7 @@ assert (S U B Y = Py B U V / Py U V U * S U V Y).
 
 elim (proj_ex B U V).
 intros B1 HB1.
-2:unfold on_perp_d in H;intuition.
+2:unfold on_perp_d in H;intuition (auto with *).
 
 assert (S U B Y / S U  V Y = S U B1 Y / S U V Y).
 replace (S U B Y) with (S U B1 Y).
@@ -832,7 +832,7 @@ IsoleVar (S U B Y) H2.
 rewrite H2.
 field.
 unfold on_perp_d in *.
-intuition.
+intuition (auto with *).
 
 auto with Geom.
 
@@ -938,7 +938,7 @@ subst U.
 cases_equality A V.
 subst V.
 unfold on_foot in H.
-use H;intuition.
+use H;intuition (auto with *).
 clear H0.
 unfold on_foot in H.
 use H.
@@ -989,7 +989,7 @@ subst.
 basic_simpl.
 assert (C=D).
 auto with Geom.
-intuition.
+intuition (auto with *).
 
 (* case A<>U *)
 
@@ -1068,7 +1068,7 @@ subst.
 basic_simpl.
 assert (C=D).
 auto with Geom.
-intuition.
+intuition (auto with *).
 Qed.
 
 Theorem elim_ratio_on_foot_a_invariant : forall C D,
@@ -1141,7 +1141,7 @@ auto with Geom.
 intro Ha.
 rewrite Ha in *.
 replace ( 0 / (Py U V U * Py U V U) ) with 0 in *.
-intuition.
+intuition (auto with *).
 field.
 unfold on_foot in H.
 use H.
@@ -1175,7 +1175,7 @@ rewrite H5 in H3.
 basic_simpl.
 assert (Col A U V).
 auto with Geom.
-intuition.
+intuition (auto with *).
 
 eapply elim_length_ratio_inter_ll_1 with (P:=P) (Q:=Y); auto with Geom.
 unfold inter_ll, on_foot in *.
@@ -1234,7 +1234,7 @@ unfold parallel, S4 in H.
 replace (S U V Y) with (0) in H.
 basic_simpl.
 assert (Col A U V) by auto with Geom.
-intuition.
+intuition (auto with *).
 assert (Col U V Y) by auto with Geom.
 auto with Geom.
 Qed.
@@ -1266,7 +1266,7 @@ auto with Geom.
 assert (~ perp Y P P Q).
 apply (parallel_not_perp Y P P Q H).
 2:auto.
-2:intuition.
+2:intuition (auto with *).
 intro;subst.
 basic_simpl.
 IsoleVar (Py P Q P) H5.
@@ -1275,7 +1275,7 @@ replace (0/r) with (0) in H5.
 2:auto.
 assert (P=Q).
 auto with Geom.
-intuition.
+intuition (auto with *).
 Qed.
 
 Theorem elim_ratio_on_perp_d_a_aux :
@@ -1417,7 +1417,7 @@ replace (0/r) with 0 in H6 by (field;solve_conds).
 
 assert (Py Y Q Y <> 0).
 auto with Geom.
-intuition.
+intuition (auto with *).
 
 auto with Geom.
 auto.
@@ -1458,20 +1458,20 @@ assert (perp C D P Q).
 apply (perp_para_perp P Y P Q C D);auto with Geom.
 intro.
 assert  (T:=parallel_not_perp C D P Q H6 H2 H0).
-intuition.
+intuition (auto with *).
 
 unfold inter_ll.
 repeat split;auto with Geom.
 intro.
 assert (T:=parallel_not_perp P Y P Q H H3 H0).
 assert (perp P Y P Q) by auto with Geom.
-intuition.
+intuition (auto with *).
 intro.
 uniformize_signed_areas.
 rewrite H in H4.
 basic_simpl.
 assert (r * Py P Q P <> 0) by (apply nonzeromult;auto with Geom).
-intuition.
+intuition (auto with *).
 auto.
 auto with Geom.
 uniformize_dir_seg.
@@ -1549,7 +1549,7 @@ unfold on_perp_d in H.
 assert (A<>Y).
 unfold not;intro.
 subst.
-intuition.
+intuition (auto with *).
 
 assert (T:=on_line_dex_spec_strong_f A Y C D H1 H4).
 
@@ -1565,13 +1565,13 @@ basic_simpl.
 assert (C=D).
 auto with Geom.
 subst.
-intuition.
+intuition (auto with *).
 
 assert (D'<>Y).
 unfold not;intro;subst.
 subst.
 rewrite H7 in H3.
-intuition.
+intuition (auto with *).
 
 rewrite (l_25_b P Q A D' Y H6 H9).
 assert (Py4 A P D' Q = Py4 C P D Q).
@@ -1590,7 +1590,7 @@ auto with Geom.
 assert (Col Y A P).
 apply (col_trans_1 Y D' A P);
 auto with Geom.
-intuition.
+intuition (auto with *).
 
 unfold on_inter_line_perp.
 decompose [and] H.
@@ -1612,7 +1612,7 @@ unfold parallel, S4 in H17.
 basic_simpl.
 auto with Geom.
 
-intuition.
+intuition (auto with *).
 Qed.
 
 Theorem elim_ratio_on_perp_d_b_invariant :
@@ -1637,7 +1637,7 @@ assert (Col A P Y).
 unfold parallel in *.
 basic_simpl.
 auto with Geom.
-intuition.
+intuition (auto with *).
 Qed.
 
 

@@ -99,7 +99,7 @@ intros.
 rewrite <- H1.
 field.
 split; trivial.
-intuition.
+intuition (auto with *).
 apply H0.
 rewrite <- H1 in |- *.
 rewrite H2 in |- *.

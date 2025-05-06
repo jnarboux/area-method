@@ -59,7 +59,7 @@ Lemma rectangle_3 : forall A B C D I,
  A ** I / A ** C = 1 / 2.
 Proof.
 am_before_field.
-intuition.
+intuition (auto with *).
 field_and_conclude.
 Qed.
 

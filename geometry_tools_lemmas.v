@@ -175,14 +175,14 @@ Lemma zeroegal : forall A B : Point, A = B -> A ** B = 0.
 Proof.
 intros.
 assert (P := A1b A B).
-intuition.
+intuition (auto with *).
 Qed.
 
 Lemma egalzero : forall A B : Point, A ** B = 0 -> A = B.
 Proof.
 intros.
 assert (P := A1b A B).
-intuition.
+intuition (auto with *).
 Qed.
 
 Hint Resolve zeroegal egalzero: Geom.

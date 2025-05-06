@@ -17,7 +17,7 @@ unfold not;intro.
 assert (parallel P Q U V).
 subst P.
 Geometry.
-intuition.
+intuition (auto with *).
 
 cases_col R P Q.
 
@@ -61,7 +61,7 @@ unfold not;intro.
 assert (parallel P Q U V).
 eapply parallel_transitivity;eauto.
 Geometry.
-intuition.
+intuition (auto with *).
 Qed.
 
 Theorem on_inter_parallel_parallel_ex_aux: forall P Q R U V W:Point,
@@ -75,14 +75,14 @@ unfold not;intro.
 assert (parallel P Q U V).
 subst P.
 Geometry.
-intuition.
+intuition (auto with *).
 
 assert (U<>V).
 unfold not;intro.
 assert (parallel P Q U V).
 subst U.
 Geometry.
-intuition.
+intuition (auto with *).
 
 assert ({R':Point | (parallel P Q R R') /\ R<>R'}).
 apply euclid_parallel_existence_strong...
@@ -103,7 +103,7 @@ Geometry.
 Geometry.
 assert (parallel P Q U V).
 eapply parallel_transitivity;apply H5 || Geometry .
-intuition.
+intuition (auto with *).
 
 DecompExAnd H2 Y.
 exists Y.

@@ -401,7 +401,7 @@ ring_simplify in H.
 assert (A**B<>0) by auto with Geom.
 assert (2 * A ** B * A ** B <>0).
 repeat apply nonzeromult;auto with Geom.
-intuition.
+intuition (auto with *).
 Qed.
 
 Hint Resolve py_zero_eq : Geom.

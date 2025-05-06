@@ -202,7 +202,7 @@ Theorem th6_42 :
  (2 + 2) * S A K P = (1 + 2) * S A B C.
 Proof.
 am_before_field.
-intuition.
+intuition (auto with *).
 field_and_conclude.
 Qed.
 

@@ -47,18 +47,18 @@ auto with field_hints.
 intro.
 rewrite H10 in H8.
 basic_simpl.
-intuition.
+intuition (auto with *).
 auto with Geom.
 repeat apply nonzeromult;auto with Geom.
 auto with Geom.
 
-assert (U<>M) by (intro;subst;intuition).
+assert (U<>M) by (intro;subst;intuition (auto with *)).
 
 assert (~ Col U M N).
 unfold on_foot in *.
 use Hn.
 assert (N<>M).
-intro;subst;intuition.
+intro;subst;intuition (auto with *).
 assert (T:=perp_not_parallel N M U V H3 H4 H6).
 intro.
 assert (Col N M V).
@@ -67,9 +67,9 @@ unfold parallel, S4 in T.
 rewrite H8 in T.
 assert (Col N U M) by auto with Geom.
 rewrite H9 in T.
-basic_simpl;intuition.
+basic_simpl;intuition (auto with *).
 
-assert (M<>N) by (intro; subst;intuition).
+assert (M<>N) by (intro; subst;intuition (auto with *)).
 
 elim (on_parallel_d_ex M N U (-(1)) H4).
 2:auto with Geom.
@@ -82,7 +82,7 @@ use HB.
 basic_simpl.
 assert (M=N).
 auto with Geom.
-intuition.
+intuition (auto with *).
 
 elim (on_line_dex U B (r*Py U V U / (2*2*S U V B)) H5).
 intros Y HY.
@@ -125,7 +125,7 @@ basic_simpl.
 assert (Col B M U) by auto with Geom.
 assert (Col U M N).
 apply (col_trans_1 U B M N);auto with Geom.
-intuition.
+intuition (auto with *).
 
 IsoleVar (r * Py U V U) H7.
 rewrite H7.
@@ -134,7 +134,7 @@ uniformize_signed_areas.
 field.
 cut (S U V B <> 0).
 auto with field_hints.
-intuition.
+intuition (auto with *).
 auto with Geom.
 auto with Geom.
 repeat apply nonzeromult; auto with Geom.

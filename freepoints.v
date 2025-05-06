@@ -54,7 +54,7 @@ DecompEx H1 W.
 cases_equality W O.
 subst W.
 unfold inter_ll in *.
-intuition.
+intuition (auto with *).
 rename H1 into Hdiff.
 
 assert (S B O W = 1 / S4 U O V Y * (S U O Y * S B O V + S V Y O * S B O U)).
@@ -113,26 +113,30 @@ assert (Col W U Y).
 eapply col_trans_1 with (B:= V)...
 
 cases_equality Y W.
-Unset Regular Subst Tactic.
+(*
+Unset Regular Subst Tactic. *)
 subst W.
-Set Regular Subst Tactic.
-clear H13 H12 H5.
+(* Set Regular Subst Tactic. *)
+clear H13 H14.
 assert (Col O V B).
 eapply col_trans_1 with (B:= Y)...
 unfold Col in *.
-uniformize_signed_areas.
-rewrite H4.
-replace (S V O B) with (-0).
+replace (S O Y V) with (S V O Y)
+ by (uniformize_signed_areas;reflexivity).
 rewrite H11.
-ring.
-rewrite <- H5.
+replace (S O B V) with (- S O V B)
+by (uniformize_signed_areas;reflexivity).
+rewrite H13.
+replace (S O B Y) with (- S B O Y)
+by (uniformize_signed_areas;reflexivity).
+rewrite H4.
 ring.
 
 assert (Col Y U O).
 eapply col_trans_1 with (B:= W)...
 assert (Col O U V).
 eapply col_trans_1 with (B:= Y)...
-intuition.
+intuition (auto with *).
 
 assert (U**W/V**W = S U O Y / S V O Y).
 apply co_side...
@@ -225,7 +229,7 @@ intros.
 
 cases_equality A B.
 subst.
-basic_simpl;intuition.
+basic_simpl;intuition (auto with *).
 
 assert (A**B / C**D = (S O A B + S O U A - S O U B) / (S U C D - S A C D)
  /\ (S U C D - S A C D) <> 0 ).
@@ -276,7 +280,7 @@ replace (0 - - (S O U V * S O U C) - S O U V * S O U D + S O U C * S O V D -
 S O U V * S O U C - S O U V * S O U D) in H6 by ring.
 intro Hx; rewrite Hx in H6; clear Hx.
 basic_simpl;
-intuition.
+intuition (auto with *).
 Qed.
 
 
@@ -353,7 +357,7 @@ in H6 by (field;auto).
 intro.
 rewrite H4 in H6.
 basic_simpl;
-intuition.
+intuition (auto with *).
 Qed.
 
 Lemma free_points_ratio_elimination_4 : forall O U V A B C D : Point,
@@ -368,7 +372,7 @@ Lemma free_points_ratio_elimination_4 : forall O U V A B C D : Point,
  S O V D * S O V U).
 intros.
 assert (S O V U <> 0).
-intro; assert (Col O U V) by auto with Geom;intuition.
+intro; assert (Col O U V) by auto with Geom;intuition (auto with *).
 rewrite (free_points_ratio_elimination_3 O V U A B C D) by auto.
 reflexivity.
 Qed.
@@ -399,7 +403,7 @@ replace (S O U A * S O V D - S O U A * S O V C - S O V A * S O U D +
 S O V C * S O U D + S O U A * S O V D) in * by ring.
 intro Hx; rewrite Hx in *.
 replace (0 / S O U V) with 0 in * by (field;auto).
-intuition.
+intuition (auto with *).
 Qed.
 
 (*
@@ -428,7 +432,7 @@ assert (~ Col O C D).
 
   assert (Col C A O).
     apply (col_trans_1 C D A O );auto with Geom.
-    intuition.
+    intuition (auto with *).
 
 assert (Col B C D).
   cut (Col C D B).
@@ -444,7 +448,7 @@ field.
 split;auto.
 intro Hx; rewrite Hx in *.
 replace (0 / S O U V) with 0 in * by (field;auto).
-intuition.
+intuition (auto with *).
 Qed.
 
 Lemma free_points_ratio_elimination_6_non_zero_denom: forall O U V A B C D: Point,
@@ -461,14 +465,14 @@ assert (~ Col O C D).
 
   assert (Col C A O).
     apply (col_trans_1 C D A O );auto with Geom.
-    intuition.
+    intuition (auto with *).
 unfold Col in H4.
 rewrite (free_points_area_elimination O U V O C D) in * by assumption.
 unfold Det3 in *.
 basic_simpl.
 intro Hx; rewrite Hx in *.
 replace (0 / S O U V) with 0 in * by (field;auto).
-intuition.
+intuition (auto with *).
 Qed.
 
 
@@ -526,7 +530,7 @@ replace (- (xc * ((0 - - (X * X) - X * xd + X * yd) / X)) -
      by (field;auto).
 intro Hx; rewrite Hx in *.
 replace (0 / X) with 0 in * by (field;auto).
-intuition.
+intuition (auto with *).
 Qed.
 
 Lemma free_points_ratio_elimination_7_non_zero_denom : 

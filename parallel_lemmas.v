@@ -175,7 +175,7 @@ auto.
 assert (Col Y D A)...
 assert (Col Y D C)...
 assert (Col Y A C); eauto with Geom.
-intuition.
+intuition (auto with *).
 eapply common_point_not_par_aux; apply H || auto.
 Qed.
 
@@ -353,7 +353,7 @@ Proof.
 intuition idtac.
 assert (~ Col A A C).
 eauto with Geom.
-intuition.
+intuition (auto with *).
 Qed.
 
 Theorem not_para_eq_2 : forall A B C, ~ parallelogram A B C C.
@@ -361,7 +361,7 @@ Proof.
 intuition idtac.
 assert (~ Col B C C).
 eauto with Geom.
-intuition.
+intuition (auto with *).
 Qed.
 
 
@@ -370,7 +370,7 @@ Proof.
 intuition idtac.
 assert (~ Col A B A).
 eauto with Geom.
-intuition.
+intuition (auto with *).
 Qed.
 
 Theorem not_para_eq_4 : forall A B C, ~ parallelogram A B B C.
@@ -378,7 +378,7 @@ Proof.
 intuition idtac.
 assert (~ Col A B B).
 eauto with Geom.
-intuition.
+intuition (auto with *).
 Qed.
 
 Theorem not_para_eq_5 : forall A B C, ~ parallelogram A B A C.
@@ -386,7 +386,7 @@ Proof.
 intuition idtac.
 assert (~ Col A A C).
 eauto with Geom.
-intuition.
+intuition (auto with *).
 Qed.
 
 
@@ -395,7 +395,7 @@ Proof.
 intuition idtac.
 assert (~ Col B C B).
 eauto with Geom.
-intuition.
+intuition (auto with *).
 Qed.
 
 

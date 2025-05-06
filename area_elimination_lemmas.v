@@ -17,7 +17,7 @@ Require Export geometry_tools.
 Theorem non_zero_denom_on_line_area : forall A B C : Point, on_line A B C -> B <> C.
 unfold on_line in |- *.
 Proof.
-intuition.
+intuition (auto with *).
 Qed.
 
 Theorem non_zero_denom_inter_ll_area :
@@ -25,13 +25,13 @@ Theorem non_zero_denom_inter_ll_area :
 Proof.
 unfold inter_ll in |- *.
 unfold parallel in |- *.
-intuition.
+intuition (auto with *).
 Qed.
 
 Theorem non_zero_denom_on_parallel_d_area : forall A B C D : Point, on_parallel A B C D -> C <> D.
 Proof.
 unfold on_parallel in |- *.
-intuition.
+intuition (auto with *).
 Qed.
 
 Theorem non_zero_denom_on_inter_line_parallel_area :
@@ -39,7 +39,7 @@ Theorem non_zero_denom_on_inter_line_parallel_area :
 Proof.
 unfold on_inter_line_parallel in |- *.
 unfold parallel in |- *.
-intuition.
+intuition (auto with *).
 Qed.
 
 Theorem non_zero_denom_on_inter_parallel_parallel_area :
@@ -50,7 +50,7 @@ unfold parallel in |- *.
 intros.
 assert (S4 G C H D = - S4 C G D H)...
 rewrite H1 in H0.
-intuition.
+intuition (auto with *).
 Qed.
 
 
@@ -239,7 +239,7 @@ eapply parallel_transitivity.
 apply H7.
 Geometry.
 Geometry.
-intuition.
+intuition (auto with *).
 
 assert ((S A B Y) =  1 / (S4 U T V R) * ((S U T R)*(S A B V) + (S V R T)*(S A B U))). 
 apply elim_area_inter_ll...

@@ -393,7 +393,7 @@ forall (e:formula2) (lvar:list (prodT AVars nat)),
 Proof.
 intros.
 induction e;simpl interp_formula2_to_prop;
-repeat rewrite uniformize_areas_correct ;intuition.
+repeat rewrite uniformize_areas_correct ;intuition (auto with *).
 Qed.
 
 Lemma uniformize_areas_formula2_correct :
@@ -406,7 +406,7 @@ assert
 (   interp_formula2_to_prop lvar (uniformize_areas_formula2 e) <->
    interp_formula2_to_prop lvar e).
 apply uniformize_areas_formula2_correct_gen.
-intuition.
+intuition (auto with *).
 Qed.
 
 Definition implies := fun A B :Prop => A->B. 

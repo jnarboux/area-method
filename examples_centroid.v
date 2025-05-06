@@ -85,7 +85,7 @@ intro.
 replace (- (f * (/ (2 + 1) * S C A B))) with (- (f * S C A B) / (2+1)) in H7 by (field;solve_conds).
 rewrite H13 in H7.
 replace (0 / (2 + 1)) with (0) in H7 by (field;solve_conds).
-intuition.
-intuition.
-intuition.
+intuition (auto with *).
+intuition (auto with *).
+intuition (auto with *).
 Qed.

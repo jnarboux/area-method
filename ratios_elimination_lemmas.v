@@ -14,25 +14,25 @@ Require Export area_elimination_lemmas.
 Theorem non_zero_denom_on_line_d_1_length_ratio :
  forall (Y P Q : Point) (l : F), on_line_d Y P Q l -> P<>Q.
 unfold on_line_d in |- *.
-intuition.
+intuition (auto with *).
 Qed.
 
 Theorem non_zero_denom_on_line_d_1_length_ratio_seg :
  forall (Y P Q : Point) (l : F), on_line_d Y P Q l -> P**Q <> 0.
 unfold on_line_d in |- *.
-intuition.
+intuition (auto with *).
 Qed.
 
 Theorem non_zero_denom_on_line_1_length_ratio :
  forall (Y P Q : Point), on_line Y P Q -> P<>Q.
 unfold on_line in |- *.
-intuition.
+intuition (auto with *).
 Qed.
 
 Theorem non_zero_denom_on_line_1_length_ratio_seg :
  forall (Y P Q : Point), on_line Y P Q -> P**Q <> 0.
 unfold on_line in |- *.
-intuition.
+intuition (auto with *).
 Qed.
 
 Theorem elim_length_ratio_on_line_d_1 :
@@ -65,7 +65,7 @@ intros.
 assert (on_line_d Y P Q (P**Y/P**Q)).
 unfold on_line_d.
 unfold on_line in H.
-intuition.
+intuition (auto with *).
 field.
 Geometry.
 apply elim_length_ratio_on_line_d_1;auto.
@@ -200,14 +200,14 @@ assert  (-(S A Y P)+((S A Y P)+(S A P Q)+-0) = (S A P Q)).
 ring.
 rewrite H8 in H.
 unfold Col in H0.
-intuition.
+intuition (auto with *).
 
 unfold not;intro.
 assert (parallel C D P Q)...
 assert (parallel A Y P Q).
 eapply parallel_transitivity;try apply H1 || auto.
 auto.
-intuition.
+intuition (auto with *).
 Qed.
 
 Lemma non_zero_denom_on_line_2_length_ratio :
@@ -239,7 +239,7 @@ DecompAndAll.
 assert (~A=Y).
 unfold not;intro.
 subst A.
-intuition.
+intuition (auto with *).
 
 assert (T:exists Y0 : Point,
          Col Y0 A Y /\
@@ -265,7 +265,7 @@ apply H8.
 Geometry.
 assert (Col A Y Q).
 eapply col_trans_1 with (B:=SS)...
-intuition.
+intuition (auto with *).
 
 eapply common_point_not_par.
 2:apply H3.
@@ -326,7 +326,7 @@ assert (Col A U V).
 eapply par_col_col_3.
 2:apply H8.
 Geometry.
-intuition.
+intuition (auto with *).
 Qed.
 
 Lemma elim_length_ratio_inter_ll_1 :
@@ -369,10 +369,10 @@ unfold inter_ll in *.
 DecompAndAll.
 assert (P<>Q).
 unfold not;intro;subst P.
-intuition.
+intuition (auto with *).
 assert (U<>V).
 unfold not;intro;subst U.
-intuition.
+intuition (auto with *).
 assert (Col A P Q).
 eapply par_col_col_3.
 2:apply H7.
@@ -392,13 +392,13 @@ eapply col_par_par.
 apply H2.
 Geometry.
 Geometry.
-intuition.
+intuition (auto with *).
 assert (parallel P Q U V).
 eapply col_par_par.
 apply H14.
 Geometry.
 Geometry.
-intuition.
+intuition (auto with *).
 Qed.
 
 Lemma elim_length_ratio_inter_ll_2 :
@@ -447,7 +447,7 @@ eapply col_par_par.
 apply H.
 Geometry.
 Geometry.
-intuition.
+intuition (auto with *).
 
 assert (parallel C D P Q).
 eapply col_par_par.
@@ -465,7 +465,7 @@ Lemma non_zero_denom_on_parallel_d_1_length_ratio :
 Proof.
 intros.
 unfold on_parallel_d in H.
-intuition.
+intuition (auto with *).
 Qed.
 
 Lemma non_zero_denom_on_parallel_d_2_length_ratio :
@@ -690,7 +690,7 @@ Geometry.
 Geometry.
 assert (parallel U V P Q).
 eapply parallel_transitivity with (C:=Y) (D:=R)...
-intuition. 
+intuition (auto with *). 
 
 assert (W**Y/U**V = (S4 W P R Q) / (S4 U P V Q)).
 eapply elim_length_ratio_on_parallel_d_2...
@@ -801,13 +801,13 @@ eapply col_par_par.
 apply H2.
 Geometry.
 Geometry.
-intuition.
+intuition (auto with *).
 assert (parallel P Q U V).
 eapply col_par_par.
 apply H14.
 Geometry.
 Geometry.
-intuition.
+intuition (auto with *).
 
 eapply elim_length_ratio_on_parallel_d_2...
 apply on_parallel_to_on_parallel_d.
@@ -840,7 +840,7 @@ eapply col_par_par.
 apply H1.
 Geometry.
 Geometry.
-intuition.
+intuition (auto with *).
 Qed.
 
 Lemma elim_length_ratio_on_inter_parallel_parallel_2 :
@@ -896,13 +896,13 @@ eapply parallel_transitivity.
 apply H1.
 Geometry.
 Geometry.
-intuition.
+intuition (auto with *).
 assert (parallel U V P Q).
 eapply parallel_transitivity.
 apply H15.
 Geometry.
 Geometry.
-intuition.
+intuition (auto with *).
 Qed.
 
 Theorem aux_co_side_1 :
@@ -934,7 +934,7 @@ uniformize_signed_areas.
 rewrite H1.
 ring_simplify.
 Geometry.
-intuition.
+intuition (auto with *).
 Qed.
 
 (*
@@ -952,7 +952,7 @@ unfold inter_ll in *.
 DecompAndAll.
 assert (Q = M).
 eapply inter_llunicity;try apply H6...
-intuition.
+intuition (auto with * ).
 Qed.
 *)
 
@@ -978,7 +978,7 @@ inter_ll P A B C D -> inter_ll P A B D C.
 Proof with Geometry.
 unfold inter_ll in |- *...
 intros.
-intuition.
+intuition (auto with *).
 Qed.
 
 Lemma inter_ll_comm2 : forall P A B C D : Point, 
@@ -986,7 +986,7 @@ inter_ll P A B C D -> inter_ll P B A C D.
 Proof with Geometry.
 unfold inter_ll in |- *.
 intros.
-intuition.
+intuition (auto with *).
 Qed.
 
 Lemma inter_ll_comm3 : forall P A B C D : Point, 
@@ -994,7 +994,7 @@ inter_ll P A B C D -> inter_ll P B A D C.
 Proof with Geometry.
 unfold inter_ll in |- *.
 intros.
-intuition.
+intuition (auto with *).
 assert (parallel A B D C)...
 Qed.
 
@@ -1003,7 +1003,7 @@ inter_ll P A B C D -> inter_ll P C D A B.
 Proof with Geometry.
 unfold inter_ll in |- *.
 intros.
-intuition.
+intuition (auto with *).
 Qed.
 
 Hint Resolve inter_ll_comm1 inter_ll_comm2 inter_ll_comm3 inter_ll_comm4: Geom.
@@ -1093,7 +1093,7 @@ auto with Geom.
 auto with Geom.
 auto with Geom.
 auto with Geom.
-intuition.
+intuition (auto with *).
 
 assert (inter_ll Y U V P Q).
 unfold inter_ll in *.

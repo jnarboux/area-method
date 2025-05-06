@@ -18,9 +18,9 @@ Lemma test_on_line_4 : forall I X Y A B C ,
 Proof.
 geoInit.
 eliminate I.
-intuition.
-intuition.
-intuition.
+intuition (auto with *).
+intuition (auto with *).
+intuition (auto with *).
 Qed.
 
 (** Test on_line_d in a ratio *)
@@ -31,9 +31,9 @@ Lemma test_on_line_d_11 : forall Y P Q A C D lambda,
 Proof.
 geoInit.
 eliminate Y.
-intuition.
-intuition.
-intuition.
+intuition (auto with *).
+intuition (auto with *).
+intuition (auto with *).
 Qed.
 
 Lemma test_on_line_d_12 : forall Y P Q A C D lambda,
@@ -43,9 +43,9 @@ Lemma test_on_line_d_12 : forall Y P Q A C D lambda,
 Proof.
 intros.
 eliminate Y.
-intuition.
-intuition.
-intuition.
+intuition (auto with *).
+intuition (auto with *).
+intuition (auto with *).
 Qed.
 
 (*
@@ -56,9 +56,9 @@ Lemma test_on_line_d_13 : forall Y P Q A C D lambda,
 Proof.
 geoInit.
 eliminate Y.
-intuition.
-intuition.
-intuition.
+intuition (auto with * ).
+intuition (auto with * ).
+intuition (auto with * ).
 Qed.
 *)
 
@@ -167,9 +167,9 @@ Lemma test_inter_ll_gen_1 :  forall Y P Q U V A C D,
 Proof.
 geoInit.
 eliminate Y.
-intuition.
-intuition.
-intuition.
+intuition (auto with *).
+intuition (auto with *).
+intuition (auto with *).
 Qed.
 
 Lemma test_inter_ll_gen_2 :  forall Y P Q U V A C D,

@@ -24,7 +24,7 @@ unfold not;intro.
 assert (parallel C X E F).
 subst C.
 Geometry.
-intuition.
+intuition (auto with *).
 cut  (parallel A B C Y).
 Geometry.
 eapply col_par_par.
@@ -37,7 +37,7 @@ assert (parallel C X E F).
 assert (parallel C X A B).
 Geometry.
 eapply parallel_transitivity;eauto.
-intuition.
+intuition (auto with *).
 
 Qed.
 

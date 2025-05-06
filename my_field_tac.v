@@ -117,7 +117,7 @@ smart_field.
 unfold not;intro.
 rewrite H2 in H0.
 replace (0/d) with 0 in H0.
-intuition.
+intuition (auto with *).
 smart_field.
 Qed.
 
@@ -132,7 +132,7 @@ apply nonzeromult;auto.
 unfold not;intro.
 subst c.
 replace (0/d) with 0 in H0.
-intuition.
+intuition (auto with *).
 smart_field.
 Qed.
 
@@ -146,7 +146,7 @@ smart_field.
 unfold not;intro.
 rewrite H1 in H.
 replace (0/d) with 0 in H.
-intuition.
+intuition (auto with *).
 smart_field.
 Qed.
 
@@ -159,7 +159,7 @@ intros.
 unfold not;intro.
 subst c.
 replace (0/d) with 0 in H.
-intuition.
+intuition (auto with *).
 smart_field.
 Qed.
 
@@ -443,7 +443,9 @@ Proof.
 intros.
 unfold not;intro.
 subst a.
-intuition.
+replace (- 0) with 0 in H.
+apply H;reflexivity.
+ring.
 Qed.
 
 Hint Rewrite 
@@ -717,7 +719,7 @@ Goal forall x y z t,  x<>0 -> -x <> 0 -> False ->
 Proof.
 intros.
 Ffield.
-intuition.
+intuition (auto with *).
 Qed.
 
 Goal forall f,  / 2 * f + / 2 * (/ 2 * f) <> 0 ->

@@ -34,7 +34,7 @@ Lemma on_line_to_on_line_d : forall A B C,
 Proof.
 intros.
 unfold on_line, on_line_d in *.
-intuition.
+intuition (auto with *).
 field.
 Geometry.
 Qed.
@@ -44,7 +44,7 @@ Lemma on_parallel_to_on_parallel_d : forall  Y T A B,
 Proof.
 intros.
 unfold on_parallel, on_parallel_d in *.
-intuition.
+intuition (auto with *).
 field.
 Geometry.
 Qed.
@@ -141,7 +141,7 @@ Qed.
 
 Lemma inter_ll_ex :  forall P Q U V : Point,
  ~ parallel P Q U V -> exists Y, inter_ll Y P Q U V.
-Proof with intuition.
+Proof with intuition (auto with *).
 intros.
 assert  {Y : Point | Col Y P Q /\ Col Y U V}.
 apply inter_llex...
@@ -163,7 +163,7 @@ assert ({Y : Point | parallel Q R P Y}).
 apply euclid_parallel_existence.
 DecompEx H1 Y.
 exists Y.
-intuition.
+intuition (auto with *).
 Qed.
 
 Theorem on_parallel_ex : forall P Q R : Point, 
@@ -177,7 +177,7 @@ apply euclid_parallel_existence.
 elim H1;intros.
 exists x.
 unfold on_parallel.
-intuition.
+intuition (auto with *).
 Qed.
 
 

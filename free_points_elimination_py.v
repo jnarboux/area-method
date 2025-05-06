@@ -39,8 +39,8 @@ assert (U**V<>0).
 auto with Geom.
 assert (2 * U ** V * U ** V <> 0).
 repeat (apply (nonzeromult));auto with Geom.
-intuition.
-intuition.
+intuition (auto with *).
+intuition (auto with *).
 Qed.
 
 Ltac construct_grid O U V H := 
@@ -72,7 +72,7 @@ intro.
 assert (parallel O U O V) by auto with Geom.
 assert (~ parallel O U O V) by
 (apply (perp_not_parallel);auto with Geom).
-intuition.
+intuition (auto with *).
 Qed.
 
 Lemma degen_py_elim : forall O U V, perp O U O V -> 

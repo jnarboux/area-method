@@ -126,7 +126,7 @@ assert (B<>D).
 tauto.
 apply l2_11a_strong.
 unfold weak_parallelogram.
-intuition.
+intuition (auto with *).
 Qed.
 
 (** We choose the most general notion such that l2_11 is still valid *)
@@ -230,7 +230,7 @@ assert (Col A P D).
 eapply col_trans_1 with (B:=B)...
 assert (Col P Q D).
 eapply col_trans_1 with (B:=A)...
-intuition.
+intuition (auto with *).
 replace (A**D) with (- D**A).
 field...
 symmetry;Geometry.
@@ -269,10 +269,10 @@ apply  l2_11a_strong_strong_strong_aux...
 unfold weak_3_parallelogram in *.
 DecompExAnd H X.
 exists X.
-intuition.
+intuition (auto with *).
 apply l2_11a_strong.
 unfold weak_parallelogram.
-intuition.
+intuition (auto with *).
 Qed.
 
 Theorem l2_11b :
@@ -551,7 +551,7 @@ subst.
 assert (S<>A').
 intro.
 subst.
-intuition.
+intuition (auto with *).
 replace (S ** A' / S ** A') with 1.
 2:field;auto with Geom.
 
@@ -562,7 +562,7 @@ intro.
 assert (S=B).
 auto with Geom.
 subst.
-intuition.
+intuition (auto with *).
 
 assert (Col A A' S).
 apply  (col_trans_1 A B A' S).
@@ -573,15 +573,15 @@ auto with Geom.
 auto with Geom.
 
 assert (Col S A A') by auto with Geom.
-intuition.
+intuition (auto with *).
 
 assert (S<>A).
 intro;subst.
-intuition.
+intuition (auto with *).
 
 assert (S<>A').
 intro;subst.
-intuition.
+intuition (auto with *).
 
 cases_equality A B.
 subst.
@@ -597,7 +597,7 @@ auto with Geom.
 assert (Col A' S B).
 apply (col_trans_1 A' B' S B);auto with Geom.
 assert (Col S B A');auto with Geom.
-intuition.
+intuition (auto with *).
 
 assert (S ** A / B ** A = S ** A' / B' ** A').
 apply (thales S A B B' A');auto with Geom.
@@ -605,7 +605,7 @@ apply (thales S A B B' A');auto with Geom.
 intro.
 assert (Col A A' S).
 apply (col_trans_1 A B A' S);auto with Geom.
-intuition.
+intuition (auto with *).
 
 assert (B**A/S**A= B'**A' / S**A').
 
@@ -654,7 +654,7 @@ assert (T := on_line_dex P Q (C ** D / P ** Q)).
 elim T; intros; clear T.
 decompose [and] p; clear p.
 exists x.
-intuition.
+intuition (auto with *).
 rewrite H1.
 field.
 Geometry.
@@ -673,7 +673,7 @@ assert (Col A B Q).
 eapply par_col_col_1;eauto.
 assert (Col A P Q).
 eapply col_trans_1;apply H || auto.
-intuition.
+intuition (auto with *).
 Qed.
 
 Lemma two_sides_par_eq_parallelogram : 
@@ -744,7 +744,7 @@ Geometry.
 Geometry.
 ring.
 subst C.
-intuition.
+intuition (auto with *).
 
 assert (P**X + X**Q = P**Q)...
 rewrite H3 in H11.
@@ -777,7 +777,7 @@ Lemma weak_parallelogram_weak_2_parallelogram :
 Proof with Geometry.
 unfold weak_2_parallelogram, weak_parallelogram.
 intros.
-intuition.
+intuition (auto with *).
 Qed.
 
 Lemma weak_2_parallelogram_weak_3_parallelogram :
@@ -786,7 +786,7 @@ Lemma weak_2_parallelogram_weak_3_parallelogram :
 Proof with Geometry.
 unfold weak_2_parallelogram, weak_3_parallelogram.
 intros.
-intuition.
+intuition (auto with *).
 Qed.
 
 Lemma weak_parallelogram_weak_3_parallelogram :
@@ -823,7 +823,7 @@ assert (P=Q).
 basic_simpl...
 subst Q.
 unfold weak_2_parallelogram.
-intuition.
+intuition (auto with *).
 assert ({O :Point |  mid_point O P D}).
 apply mid_point_ex.
 DecompEx H0 X.
@@ -831,14 +831,14 @@ exists X...
 
 cases_equality P D.
 subst P.
-assert (Q=C);intuition.
+assert (Q=C);intuition (auto with *).
 subst Q.
 clear H0 H5.
 replace (D**C) with (-C**D) in H1.
 2:symmetry...
 assert (C**D=0)...
 assert (C=D)...
-intuition.
+intuition (auto with *).
 assert (Q<>C).
 unfold not;intro.
 subst Q.
@@ -861,12 +861,12 @@ cases_equality Q C.
 cut (weak_2_parallelogram P Q D C).
 apply weak_2_parallelogram_weak_3_parallelogram.
 apply parallel_side_eq_weak_weak_para...
-intuition.
+intuition (auto with *).
 subst P.
 unfold weak_3_parallelogram.
 exists D.
 unfold mid_point.
-intuition.
+intuition (auto with *).
 unfold parallel, S4 in H.
 basic_simpl...
 cases_equality Q C.
@@ -874,13 +874,13 @@ subst Q.
 unfold weak_3_parallelogram.
 exists C.
 unfold mid_point.
-intuition.
+intuition (auto with *).
 unfold parallel, S4 in H.
 basic_simpl...
 cut (weak_2_parallelogram P Q D C).
 apply weak_2_parallelogram_weak_3_parallelogram.
 apply parallel_side_eq_weak_weak_para...
-intuition.
+intuition (auto with *).
 Qed.
 
 Lemma on_line_dex_spec_strong_f :
@@ -913,11 +913,11 @@ assert (P<>D).
 unfold not;intro.
 subst P.
 assert (C=D).
-intuition.
+intuition (auto with *).
 subst D.
 assert (C**C<>C**C).
-intuition.
-intuition.
+intuition (auto with *).
+intuition (auto with *).
 
 assert (Th := (on_line_dex_spec P Q C D H0)).
 elim Th;intro Y;intros;clear Th.
@@ -925,7 +925,7 @@ decompose [and] p;clear p.
 
 cases_equality Y C.
 subst Y.
-intuition.
+intuition (auto with *).
 
 exists Y.
 split;try assumption.
@@ -938,9 +938,9 @@ Geometry.
 Geometry.
 2:auto.
 split;intro.
-intuition.
+intuition (auto with *).
 subst Y.
-intuition.
+intuition (auto with *).
 Qed.
 
 Lemma on_line_dex_spec_strong_bis :
@@ -984,7 +984,7 @@ basic_simpl.
 Geometry.
 assert ( P ** C <> C ** D).
 apply H4...
-intuition.
+intuition (auto with *).
 Qed.
 
 
@@ -1021,7 +1021,7 @@ apply H0.
 auto.
 assert (Col P Q D).
 eapply col_trans_1; apply H7 || auto.
-intuition.
+intuition (auto with *).
 Qed.
 
 Theorem l2_15 :

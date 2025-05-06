@@ -148,7 +148,7 @@ Proof.
 geoInit.
 eliminate I.
 2:reflexivity.
-intuition.
+intuition (auto with *).
 Qed.
 
 Lemma test_area_on_inter_parallel_parallel_1 : forall I A B C D E F X Y,
@@ -159,7 +159,7 @@ Proof.
 geoInit.
 eliminate I.
 2:reflexivity. 
-intuition.
+intuition (auto with *).
 Qed.
 
 (* on_foot *)

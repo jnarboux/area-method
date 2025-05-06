@@ -50,11 +50,11 @@ repeat split;auto with field_hints.
 symmetry;apply midpoint_elim;auto.
 replace (A**O) with (- O**A) by (symmetry; auto with Geom).
 field;auto with Geom.
-intuition.
+intuition (auto with *).
 replace (A**O) with (- O**A) by (symmetry; auto with Geom).
 field;auto with Geom.
-intuition.
-intuition.
+intuition (auto with *).
+intuition (auto with *).
 Qed.
 
 Lemma l_6_295 : forall A B C D F P Q R S,
@@ -121,7 +121,7 @@ unfold_Py.
 uniformize_dir_seg.
 field_and_conclude.
 solve_conds.
-unfold not;intro H1; rewrite H1 in *; basic_simpl;intuition.
+unfold not;intro H1; rewrite H1 in *; basic_simpl;intuition (auto with *).
 Qed.
 
 Lemma l6_144 : forall A B I A1 A2 B1 B2 C,
@@ -145,8 +145,8 @@ unfold_Py;uniformize_dir_seg.
 basic_simpl.
 field.
 solve_conds.
-intro;rewrite H1 in H; basic_simpl;intuition.
-intro;rewrite H1 in H0; basic_simpl;intuition.
+intro;rewrite H1 in H; basic_simpl;intuition (auto with *).
+intro;rewrite H1 in H0; basic_simpl;intuition (auto with *).
 Qed.
 
 
